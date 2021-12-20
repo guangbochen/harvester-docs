@@ -1056,7 +1056,7 @@
 <p>For Harvester v0.3.0 and above, virtualization management with the multi-cluster management feature will be supported using Rancher v2.6.x.</p>
 <ol>
 <li>
-<p>Firstly, you will need to spin up a Rancher with v2.6.3 or above of Harvester v1.0.0 management. For testing purposes, you can spin up a Rancher server using the following <code>docker run</code> command: 
+<p>As a prerequisite, you will need to create a Rancher server with <code>v2.6.3</code> or above for Harvester <code>v1.0.0</code> integration. For testing purposes, you can spin up a Rancher server using the following <code>docker run</code> command:
     <div class="highlight"><pre><span></span><code>$ sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:v2.6.3
 </code></pre></div></p>
 <div class="admonition note">
@@ -1120,7 +1120,7 @@
 <h2 id="delete-imported-harvester-cluster">Delete Imported Harvester Cluster<a class="headerlink" href="#delete-imported-harvester-cluster" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You will need to reset the <code>cluster-registration-url</code> to empty on the setting page of the imported Harvester cluster first. A known issue will be addressed via <a href="https://github.com/harvester/harvester/issues/1686">#1686</a>.</p>
+<p>You need to remove the <code>cluster-registration-url</code> value manually in the settings page of the imported Harvester cluster first. A known issue is open for addressing this bug: <a href="https://github.com/harvester/harvester/issues/1686">#1686</a>.</p>
 </div>
 <p>Users can delete the imported Harvester cluster from the Rancher UI via <strong>Virtualization Management &gt; Harvester Clusters</strong>. Select the cluster you want to remove and click the <strong>Delete</strong> button to delete the imported Harvester cluster.</p>
 <p><img alt="delete-cluster" src="../assets/delete-harvester-cluster.png" /></p>

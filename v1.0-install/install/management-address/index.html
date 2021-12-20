@@ -1017,14 +1017,14 @@
 
 
 <h1 id="management-address">Management Address<a class="headerlink" href="#management-address" title="Permanent link">&para;</a></h1>
-<p>Harvester provides a fixed virtual IP (VIP) as the management address. Users can check the management address on the console dashboard after installation.</p>
+<p>Harvester provides a fixed virtual IP (VIP) as the management address. You can find the management address on the console dashboard after the installation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You will need to config static MAC-to-IP address mapping on your DHCP server to persist the Virtual IP accordingly.</p>
+<p>If you selected the IP address to be configured via DHCP, you will need to configure static MAC-to-IP address mapping on your DHCP server in order to have a persistent Virtual IP</p>
 </div>
 <p><img alt="" src="../assets/iso-installed.png" /></p>
 <h2 id="how-to-get-the-vip-mac-address">How to get the VIP MAC address<a class="headerlink" href="#how-to-get-the-vip-mac-address" title="Permanent link">&para;</a></h2>
-<p>You can get the VIP MAC address via run the following command on the management node:
+<p>To get the VIP MAC address, you can run the following command on the management node:
 <div class="highlight"><pre><span></span><code>$ kubectl get svc -n kube-system ingress-expose -ojsonpath<span class="o">=</span><span class="s1">&#39;{.metadata.annotations}&#39;</span>
 </code></pre></div></p>
 <p>Example of output:
@@ -1033,8 +1033,8 @@
 <h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
 <p>The management address has two usages.</p>
 <ul>
-<li>Allow users to access the Harvester API/UI via <code>HTTPS</code> protocol.</li>
-<li>Used by the other nodes to join the cluster. 
+<li>Allows the access to the Harvester API/UI via <code>HTTPS</code> protocol.</li>
+<li>Is the address the other nodes use to join the cluster.
   <img alt="" src="../assets/configure-management-address.png" /></li>
 </ul>
 

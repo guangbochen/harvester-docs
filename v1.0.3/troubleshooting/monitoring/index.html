@@ -1170,8 +1170,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#monitoring-is-unusable-due-to-pod-stuck-in-terminating" class="md-nav__link">
-    Monitoring is unusable due to Pod stuck in Terminating
+  <a href="#monitoring-is-unusable-due-to-pod-being-stuck-in-terminating-status" class="md-nav__link">
+    Monitoring is unusable due to Pod being stuck in Terminating status
   </a>
   
 </li>
@@ -1294,8 +1294,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#monitoring-is-unusable-due-to-pod-stuck-in-terminating" class="md-nav__link">
-    Monitoring is unusable due to Pod stuck in Terminating
+  <a href="#monitoring-is-unusable-due-to-pod-being-stuck-in-terminating-status" class="md-nav__link">
+    Monitoring is unusable due to Pod being stuck in Terminating status
   </a>
   
 </li>
@@ -1327,8 +1327,8 @@
 <p>The following sections contain tips to troubleshoot Harvester Monitoring.</p>
 <h2 id="monitoring-is-unusable">Monitoring is unusable<a class="headerlink" href="#monitoring-is-unusable" title="Permanent link">&para;</a></h2>
 <p>When the Harvester Dashboard is not showing any monitoring metrics, it can be caused by the following reasons.</p>
-<h3 id="monitoring-is-unusable-due-to-pod-stuck-in-terminating">Monitoring is unusable due to Pod stuck in <code>Terminating</code><a class="headerlink" href="#monitoring-is-unusable-due-to-pod-stuck-in-terminating" title="Permanent link">&para;</a></h3>
-<p>Harvester Monitoring related pods are deployed randomly in the cluster Nodes, when the Node hosting following pods is accidentally down, the related pods may stuck in status <code>Terminating</code>, then the Monitoring is unusable from the WebUI.</p>
+<h3 id="monitoring-is-unusable-due-to-pod-being-stuck-in-terminating-status">Monitoring is unusable due to Pod being stuck in <code>Terminating</code> status<a class="headerlink" href="#monitoring-is-unusable-due-to-pod-being-stuck-in-terminating-status" title="Permanent link">&para;</a></h3>
+<p>Harvester Monitoring pods are deployed randomly on the cluster Nodes. When the Node hosting the pods accidentally goes down, the related pods may become stuck in the <code>Terminating</code> status rendering the Monitoring unusable from the WebUI.</p>
 <div class="highlight"><pre><span></span><code>$ kubectl get pods -n cattle-monitoring-system
 
 NAMESPACE                   NAME                                                     READY   STATUS        RESTARTS   AGE
@@ -1341,7 +1341,7 @@ cattle-monitoring-system    rancher-monitoring-grafana-d9c56d79b-t24sz          
 cattle-monitoring-system    rancher-monitoring-kube-state-metrics-5bc8bb48bd-nbd92   <span class="m">1</span>/1     Running       <span class="m">4</span>          4d1h
 ...
 </code></pre></div>
-<p>Monitoring can be recovered via using CLI commands to force delete the related pods, and the cluster will redeploy new pods to replace them.</p>
+<p>Monitoring can be recovered using CLI commands to force delete the related pods. The cluster will redeploy new pods to replace them.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Delete each none-running Pod in namespace cattle-monitoring-system.</span>
 
 $ kubectl delete pod --force -n cattle-monitoring-system prometheus-rancher-monitoring-prometheus-0
@@ -1357,7 +1357,7 @@ $ kubectl delete pod --force -n cattle-monitoring-system rancher-monitoring-graf
 
 $ kubectl delete pod --force -n cattle-monitoring-system rancher-monitoring-grafana-d9c56d79b-t24sz
 </code></pre></div>
-<p>Wait a few minutes, the new pods are created and become ready. The Monitoring dashboard will be usable again.</p>
+<p>Wait for a few minutes so that the new pods are created and readied for the Monitoring dashboard to be usable again.</p>
 <div class="highlight"><pre><span></span><code>$ kubectl get pods -n cattle-monitoring-system 
 
 NAME                                                     READY   STATUS     RESTARTS   AGE

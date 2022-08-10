@@ -867,11 +867,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-config-monitoring-settings" class="md-nav__link">
-    How to Config Monitoring Settings
+  <a href="#how-to-configure-monitoring-settings" class="md-nav__link">
+    How to Configure Monitoring Settings
   </a>
   
-    <nav class="md-nav" aria-label="How to Config Monitoring Settings">
+    <nav class="md-nav" aria-label="How to Configure Monitoring Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1326,11 +1326,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-config-monitoring-settings" class="md-nav__link">
-    How to Config Monitoring Settings
+  <a href="#how-to-configure-monitoring-settings" class="md-nav__link">
+    How to Configure Monitoring Settings
   </a>
   
-    <nav class="md-nav" aria-label="How to Config Monitoring Settings">
+    <nav class="md-nav" aria-label="How to Configure Monitoring Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1402,9 +1402,9 @@ Swap:            0B          0B          0B
 </code></pre></div>
 <p>The corresponding <code>Memory Usage</code> is <code>(1 - 4.6/7.7) * 100%</code>, roughly <code>40%</code>.</p>
 </div>
-<h2 id="how-to-config-monitoring-settings">How to Config Monitoring Settings<a class="headerlink" href="#how-to-config-monitoring-settings" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-configure-monitoring-settings">How to Configure Monitoring Settings<a class="headerlink" href="#how-to-configure-monitoring-settings" title="Permanent link">&para;</a></h2>
 <p><em>Available as of v1.0.1</em></p>
-<p>Monitoring has several components that help to collect and aggregate metric data from all Nodes/Pods/VMs. The resources required for monitoring are depends on your workloads and hardware resources. Harvester sets defaults based on general use case, and you can change them accordingly.</p>
+<p>Monitoring has several components that help to collect and aggregate metric data from all Nodes/Pods/VMs. The resources required for monitoring depend on your workloads and hardware resources. Harvester sets defaults based on general use cases, and you can change them accordingly.</p>
 <p>Currently, <code>Resources Settings</code> can be configured for the following components:</p>
 <ul>
 <li>Prometheus</li>
@@ -1425,16 +1425,16 @@ Swap:            0B          0B          0B
 <img alt="" src="../assets/monitoring-setting-edit-config.png" /></p>
 </li>
 <li>
-<p>Click <code>Save</code> and the Monitoring will be restarted within a few seconds. Please be aware that the reboot can take some time to reload previous data.</p>
+<p>Click <code>Save</code> and the <code>Monitoring</code> resource will be restarted within a few seconds. Please be aware that the reboot can take some time to reload previous data.</p>
 </li>
 </ol>
 <p><strong>The most frequently used option is the memory setting:</strong></p>
 <ul>
 <li>
-<p>The <code>Requested Memory</code> is the minimum memory of the <code>Monitoring</code>. The recommended value is about 5% to 10% of the system memory of one single management node. A value less than 500Mi will be denied.</p>
+<p>The <code>Requested Memory</code> is the minimum memory required by the <code>Monitoring</code> resource. The recommended value is about 5% to 10% of the system memory of one single management node. A value less than 500Mi will be denied.</p>
 </li>
 <li>
-<p>The <code>Memory Limit</code> is the maximum memory of the <code>Monitoring</code>. The recommended value is about 30% of system memory of one single management node, when the <code>Monitoring</code> reaches this threshold, it will automatically restart.</p>
+<p>The <code>Memory Limit</code> is the maximum memory that can be allocated to a <code>Monitoring</code> resource. The recommended value is about 30% of the system's memory for one single management node. When the <code>Monitoring</code> reaches this threshold, it will automatically restart.</p>
 </li>
 </ul>
 <p>Depending on the available hardware resources and system loads, you may change the above settings accordingly.</p>
@@ -1444,7 +1444,7 @@ Swap:            0B          0B          0B
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>When more and more VMs get deployed in one node, the <code>prometheus-node-exporter</code> pod might get killed due to OOM(out of memory). In that case, you should increase the value of <code>limits.memory</code>.</p>
+<p>When an increasing number of VMs get deployed on one node, the <code>prometheus-node-exporter</code> pod might get killed due to OOM(out of memory). In that case, you should increase the value of <code>limits.memory</code>.</p>
 </div>
 <h3 id="from-cli">From CLI<a class="headerlink" href="#from-cli" title="Permanent link">&para;</a></h3>
 <p>To update those values, you can also use the CLI command with: <code>$kubectl edit managedchart rancher-monitoring -n fleet-local</code>.</p>

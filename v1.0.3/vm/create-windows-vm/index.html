@@ -1689,7 +1689,7 @@ And if you want to cancel all changes made, click <code>Cancel</code>.</p>
 <p><img alt="boot-from-cd" src="../assets/boot-from-cd.png" /></p>
 <p>Alternately if the system has already booted into the UEFI shell, you can type in <code>reset</code> to force the system to reboot again. Once the prompt appears you can press any key to let system boot from Windows ISO.</p>
 <h3 id="vm-crashes-when-reserved-memory-not-enough">VM crashes when reserved memory not enough<a class="headerlink" href="#vm-crashes-when-reserved-memory-not-enough" title="Permanent link">&para;</a></h3>
-<p>There is a known issue with Windows VM when it is allocated more than 8GiB of without enough reserved memory configured. The VM crashes without warning.</p>
+<p>There is a known issue with Windows VM when it is allocated more than 8GiB without enough reserve memory configured. The VM crashes without warning.</p>
 <p>This can be fixed by allocating at least 256MiB of reserved memory to the template on the Advanced Options tab.</p>
 <p><img alt="reserved-memory-config" src="../assets/reserved-memory-config.png" /></p>
 <p>We will add a default 256MiB of reserved memory to the Windows template to prevent this problem in the future release.</p>

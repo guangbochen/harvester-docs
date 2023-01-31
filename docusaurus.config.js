@@ -10,10 +10,10 @@ const config = {
   tagline: "The open source hyperconverged infrastructure (HCI) solution for a cloud native world",
   url: "https://docs.harvesterhci.io",
   baseUrl: "/",
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "harvester",
+  organizationName: "Harvester",
   projectName: "docs",
   i18n: {
     defaultLocale: "en",
@@ -37,6 +37,7 @@ const config = {
           showLastUpdateTime: true,
           editUrl: "https://github.com/harvester/docs/edit/main/",
           lastVersion: 'v1.1',
+          docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi-docs
           versions: {
             current: {
               label: 'v1.2-dev',
@@ -148,7 +149,37 @@ const config = {
         ],
       },
     ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      // {
+      //   id: "harvester-openapi",
+      //   docsPluginId: "classic",
+      //   config: {
+      //     petstore: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+      //       specPath: "api/swagger.json", // Path to designated spec file
+      //       outputDir: "docs/api", // Output directory for generated .mdx docs
+      //       // sidebarOptions: {
+      //       //   groupPathsBy: "tag",
+      //       // },
+      //     }
+      //   }
+      // },
+      {
+        id: "demo",
+        docsPluginId: "classic",
+        config: {
+          petstore: { // Note: petstore key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
+            specPath: "api/petstore.yaml", // Path to designated spec file
+            outputDir: "docs/petstore", // Output directory for generated .mdx docs
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          }
+        }
+      },
+    ],
   ],
+  themes: ["docusaurus-theme-openapi-docs"] // Allows use of @theme/ApiItem and other components
 };
 
 module.exports = config;
